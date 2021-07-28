@@ -303,7 +303,7 @@ struct Avout2 {
     ClockOfTheLongNow3 apert ;
 } ;
 
-void num_3_18 () {
+void num_3_18 () { 
     Avout2 raz { "Erasmas", 3010 } ;
     Avout2 jad { "Jad", 4000 } ;
     raz.announce() ;

@@ -485,7 +485,7 @@ ref_type (int &&x) {
 }
 
 void
-num_4_33 () {
+num_4_33 () { 
     auto x = 1 ;
     ref_type(x) ;
     ref_type(2) ;

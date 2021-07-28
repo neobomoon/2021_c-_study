@@ -13,7 +13,7 @@ num_2_1 () {
 }
 
 void
-num_2_2 () {
+num_2_2 () { 
     unsigned int a = 3669732608 ;
     printf("Yabba %x!\n", a) ; // hexidecimal format
 
