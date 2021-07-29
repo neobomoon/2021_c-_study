@@ -142,3 +142,33 @@ rvalue reference 2
 rvalue reference 3
 */
 ```
+
+# 2021.07.29 목요일
+1. (chap 05) 오늘은 virtual을 이용해서 클래스의 함수를 상속받는 것을 알게 되었다. virtual function을 사용하기 위해선 함수가 public부분에 선언되어 있어야 한다. 또한 이렇게 선언된 함수를 pure virtual function으로 만들게 되면 그 클래스는 abstract class로 바뀌게 된다. 이러한 것들을 통해 클래스간에 공통된 것을 하나로 묶어둬 child class를 선언할 때 공통된 함수를 빠트리는 경우를 예방할 수 있게 된다.
+
+```
+#include <cstdio>
+
+struct BaseClass {
+    virtual const char* 
+    final_message() const = 0 ; // pure virtual method가 하나라도 있으면 이 클래스는 abstract class가 된다.
+} ;
+
+struct DerivedClass : BaseClass {
+    const char* 
+    final_message() const override {
+        return "We apologize for the inconvenience." ;
+    }
+} ;
+
+void
+num_5_8 () {
+    // BaseClass base ; // BaseClass는 abstract class이기 때문에 선언하면 컴파일 에러가 난다.
+    DerivedClass derived ;
+    BaseClass& ref = derived ;
+    printf("DerivedClass:  %s\n", derived.final_message()) ;
+    printf("BaseClass:     %s\n", ref.final_message()) ;
+}
+```
+또한 default 와 delete내용이 있었지만 아직 완전히 이해하지 못 해서 한번 더 복습하고 TIL에 기록해야겠다 생각했다.
+
